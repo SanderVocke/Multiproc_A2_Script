@@ -1,0 +1,15 @@
+Frequency                 300000000   Hz
+ContextSwitchingtime      4000       Cycles
+PowerConsumption          0.06        W
+
+Task      Cycles              Memory
+Scenario  S1        S2        S1        S2
+
+Task1     243000    152280    42490     36335
+Task2     174960    218700    27800     31590
+Task3     101250    144990    49765     27648
+Task4     108540    0         82100     0
+Task5     151225    186150    34745     42275
+Task6     259640    253760    18432     33180
+Task7     27216     22518     29500     62395
+Task8     20250     20250     1000      1000

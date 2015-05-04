@@ -1,0 +1,7 @@
+<TMAPi> : MapTaskiTo string value.
+<SCENARIONAME>
+<PRIORITYi>
+<ITERATESTRING> (true or false)
+<PROCESSORi>
+<VSFiL> and <VSFiR>  (1.0, etc)
+<OSPOLICYi>
