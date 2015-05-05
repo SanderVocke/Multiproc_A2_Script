@@ -44250,14 +44250,26 @@
             <instantiation_parameter name="Node2ProcessorType" type="String"/>
             <instantiation_parameter name="Node3ProcessorType" type="String"/>
             <instantiation_parameter name="Node4ProcessorType" type="String"/>
+            <instantiation_parameter name="Node5ProcessorType" type="String"/>
+            <instantiation_parameter name="Node6ProcessorType" type="String"/>
+            <instantiation_parameter name="Node7ProcessorType" type="String"/>
+            <instantiation_parameter name="Node8ProcessorType" type="String"/>
             <instantiation_parameter name="OSPolicy1" type="String"/>
             <instantiation_parameter name="OSPolicy2" type="String"/>
             <instantiation_parameter name="OSPolicy3" type="String"/>
             <instantiation_parameter name="OSPolicy4" type="String"/>
+            <instantiation_parameter name="OSPolicy5" type="String"/>
+            <instantiation_parameter name="OSPolicy6" type="String"/>
+            <instantiation_parameter name="OSPolicy7" type="String"/>
+            <instantiation_parameter name="OSPolicy8" type="String"/>
             <instantiation_parameter name="VSF1" type="Real"/>
             <instantiation_parameter name="VSF2" type="Real"/>
             <instantiation_parameter name="VSF3" type="Real"/>
             <instantiation_parameter name="VSF4" type="Real"/>
+            <instantiation_parameter name="VSF5" type="Real"/>
+            <instantiation_parameter name="VSF6" type="Real"/>
+            <instantiation_parameter name="VSF7" type="Real"/>
+            <instantiation_parameter name="VSF8" type="Real"/>
             <channel output_port="CommunicationResources" name="0"/>
             <channel output_port="ComputationResources" name="1"/>
             <channel name="2"/>
@@ -44535,98 +44547,322 @@
                 <connection port="Power" channel="2"/>
                 <connection port="Status" channel="3"/>
             </instance>
+            <instance type="cluster" class="ProcessorNode" name="Node5">
+                <instantiation_expression parameter_name="CommunicationBandwidth">
+                    <body_expression>
+                        <variable name="Node_InternalBandwidth"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="ConnectionSetUpLatency">
+                    <body_expression>
+                        <variable name="Node_InternalConnectionSetUpLatency"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="MaxEventTimeToLog">
+                    <body_expression>
+                        <variable name="MaxEventTimeToLog"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="NodeName">
+                    <body_expression>
+                        <constant type="string">"Node5"</constant>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="OSPolicy">
+                    <body_expression>
+                        <variable name="OSPolicy5"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="PowerPerActiveConnection">
+                    <body_expression>
+                        <variable name="PowerPerActiveConnection"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="PowerPerStoredByte">
+                    <body_expression>
+                        <variable name="PowerPerStoredByte"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="ProcessorType">
+                    <body_expression>
+                        <variable name="Node5ProcessorType"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="VoltageScaleFactor">
+                    <body_expression>
+                        <variable name="VSF5"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="AccuracyCheckInterval">
+                    <body_expression>
+                        <variable name="AccuracyCheckInterval"/>
+                    </body_expression>
+                </instantiation_expression>
+                <connection port="Communications" channel="0"/>
+                <connection port="Computations" channel="1"/>
+                <connection port="Power" channel="2"/>
+                <connection port="Status" channel="3"/>
+            </instance>
+            <instance type="cluster" class="ProcessorNode" name="Node6">
+                <instantiation_expression parameter_name="CommunicationBandwidth">
+                    <body_expression>
+                        <variable name="Node_InternalBandwidth"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="ConnectionSetUpLatency">
+                    <body_expression>
+                        <variable name="Node_InternalConnectionSetUpLatency"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="MaxEventTimeToLog">
+                    <body_expression>
+                        <variable name="MaxEventTimeToLog"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="NodeName">
+                    <body_expression>
+                        <constant type="string">"Node6"</constant>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="OSPolicy">
+                    <body_expression>
+                        <variable name="OSPolicy6"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="PowerPerActiveConnection">
+                    <body_expression>
+                        <variable name="PowerPerActiveConnection"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="PowerPerStoredByte">
+                    <body_expression>
+                        <variable name="PowerPerStoredByte"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="ProcessorType">
+                    <body_expression>
+                        <variable name="Node6ProcessorType"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="VoltageScaleFactor">
+                    <body_expression>
+                        <variable name="VSF6"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="AccuracyCheckInterval">
+                    <body_expression>
+                        <variable name="AccuracyCheckInterval"/>
+                    </body_expression>
+                </instantiation_expression>
+                <connection port="Communications" channel="0"/>
+                <connection port="Computations" channel="1"/>
+                <connection port="Power" channel="2"/>
+                <connection port="Status" channel="3"/>
+            </instance>
+            <instance type="cluster" class="ProcessorNode" name="Node7">
+                <instantiation_expression parameter_name="CommunicationBandwidth">
+                    <body_expression>
+                        <variable name="Node_InternalBandwidth"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="ConnectionSetUpLatency">
+                    <body_expression>
+                        <variable name="Node_InternalConnectionSetUpLatency"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="MaxEventTimeToLog">
+                    <body_expression>
+                        <variable name="MaxEventTimeToLog"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="NodeName">
+                    <body_expression>
+                        <constant type="string">"Node7"</constant>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="OSPolicy">
+                    <body_expression>
+                        <variable name="OSPolicy7"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="PowerPerActiveConnection">
+                    <body_expression>
+                        <variable name="PowerPerActiveConnection"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="PowerPerStoredByte">
+                    <body_expression>
+                        <variable name="PowerPerStoredByte"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="ProcessorType">
+                    <body_expression>
+                        <variable name="Node7ProcessorType"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="VoltageScaleFactor">
+                    <body_expression>
+                        <variable name="VSF7"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="AccuracyCheckInterval">
+                    <body_expression>
+                        <variable name="AccuracyCheckInterval"/>
+                    </body_expression>
+                </instantiation_expression>
+                <connection port="Communications" channel="0"/>
+                <connection port="Computations" channel="1"/>
+                <connection port="Power" channel="2"/>
+                <connection port="Status" channel="3"/>
+            </instance>
+            <instance type="cluster" class="ProcessorNode" name="Node8">
+                <instantiation_expression parameter_name="CommunicationBandwidth">
+                    <body_expression>
+                        <variable name="Node_InternalBandwidth"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="ConnectionSetUpLatency">
+                    <body_expression>
+                        <variable name="Node_InternalConnectionSetUpLatency"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="MaxEventTimeToLog">
+                    <body_expression>
+                        <variable name="MaxEventTimeToLog"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="NodeName">
+                    <body_expression>
+                        <constant type="string">"Node8"</constant>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="OSPolicy">
+                    <body_expression>
+                        <variable name="OSPolicy8"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="PowerPerActiveConnection">
+                    <body_expression>
+                        <variable name="PowerPerActiveConnection"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="PowerPerStoredByte">
+                    <body_expression>
+                        <variable name="PowerPerStoredByte"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="ProcessorType">
+                    <body_expression>
+                        <variable name="Node8ProcessorType"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="VoltageScaleFactor">
+                    <body_expression>
+                        <variable name="VSF8"/>
+                    </body_expression>
+                </instantiation_expression>
+                <instantiation_expression parameter_name="AccuracyCheckInterval">
+                    <body_expression>
+                        <variable name="AccuracyCheckInterval"/>
+                    </body_expression>
+                </instantiation_expression>
+                <connection port="Communications" channel="0"/>
+                <connection port="Computations" channel="1"/>
+                <connection port="Power" channel="2"/>
+                <connection port="Status" channel="3"/>
+            </instance>
         </cluster_class>
     </cluster_classes>
     <top_level_specification>
         <instance type="cluster" class="Application" name="Application">
             <instantiation_expression parameter_name="Iterate">
                 <body_expression>
-                    <constant type="boolean">false</constant>
+                    <constant type="boolean"><ITERATESTRING></constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="MapTask1To">
                 <body_expression>
-                    <constant type="string">"Node3"</constant>
+                    <constant type="string">"<TMAP1>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="MapTask2To">
                 <body_expression>
-                    <constant type="string">"Node2"</constant>
+                    <constant type="string">"<TMAP2>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="MapTask3To">
                 <body_expression>
-                    <constant type="string">"Node2"</constant>
+                    <constant type="string">"<TMAP3>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="MapTask4To">
                 <body_expression>
-                    <constant type="string">"Node1"</constant>
+                    <constant type="string">"<TMAP4>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="MapTask5To">
                 <body_expression>
-                    <constant type="string">"Node4"</constant>
+                    <constant type="string">"<TMAP5>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="MapTask6To">
                 <body_expression>
-                    <constant type="string">"Node1"</constant>
+                    <constant type="string">"<TMAP6>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="MapTask7To">
                 <body_expression>
-                    <constant type="string">"Node4"</constant>
+                    <constant type="string">"<TMAP7>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="MapTask8To">
                 <body_expression>
-                    <constant type="string">"Node3"</constant>
+                    <constant type="string">"<TMAP8>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="PriorityTask1">
                 <body_expression>
-                    <constant type="integer">1</constant>
+                    <constant type="integer"><PRIORITY1></constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="PriorityTask2">
                 <body_expression>
-                    <constant type="integer">2</constant>
+                    <constant type="integer"><PRIORITY2></constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="PriorityTask3">
                 <body_expression>
-                    <constant type="integer">3</constant>
+                    <constant type="integer"><PRIORITY3></constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="PriorityTask4">
                 <body_expression>
-                    <constant type="integer">4</constant>
+                    <constant type="integer"><PRIORITY4></constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="PriorityTask5">
                 <body_expression>
-                    <constant type="integer">5</constant>
+                    <constant type="integer"><PRIORITY5></constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="PriorityTask6">
                 <body_expression>
-                    <constant type="integer">6</constant>
+                    <constant type="integer"><PRIORITY6></constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="PriorityTask7">
                 <body_expression>
-                    <constant type="integer">7</constant>
+                    <constant type="integer"><PRIORITY7></constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="PriorityTask8">
                 <body_expression>
-                    <constant type="integer">8</constant>
+                    <constant type="integer"><PRIORITY8></constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="ScenarioPart1">
                 <body_expression>
-                    <constant type="string">"S1"</constant>
+                    <constant type="string">"<SCENARIONAME>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="AccuracyCheckInterval">
@@ -44658,32 +44894,52 @@
         <instance type="cluster" class="Platform" name="MPSoC">
             <instantiation_expression parameter_name="Node1ProcessorType">
                 <body_expression>
-                    <constant type="string">"TriMedia"</constant>
+                    <constant type="string">"<PROCESSOR1>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="Node2ProcessorType">
                 <body_expression>
-                    <constant type="string">"ARM11"</constant>
+                    <constant type="string">"<PROCESSOR2>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="Node3ProcessorType">
                 <body_expression>
-                    <constant type="string">"MIPS"</constant>
+                    <constant type="string">"<PROCESSOR3>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="Node4ProcessorType">
                 <body_expression>
-                    <constant type="string">"MIPS"</constant>
+                    <constant type="string">"<PROCESSOR4>"</constant>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="Node5ProcessorType">
+                <body_expression>
+                    <constant type="string">"<PROCESSOR5>"</constant>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="Node6ProcessorType">
+                <body_expression>
+                    <constant type="string">"<PROCESSOR6>"</constant>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="Node7ProcessorType">
+                <body_expression>
+                    <constant type="string">"<PROCESSOR7>"</constant>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="Node8ProcessorType">
+                <body_expression>
+                    <constant type="string">"<PROCESSOR8>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="VSF1">
                 <body_expression>
                     <binary_operation operator="/">
                         <left_operand>
-                            <constant type="real">1.0</constant>
+                            <constant type="real"><VSF1L></constant>
                         </left_operand>
                         <right_operand>
-                            <constant type="real">1.0</constant>
+                            <constant type="real"><VSF1R></constant>
                         </right_operand>
                     </binary_operation>
                 </body_expression>
@@ -44692,10 +44948,10 @@
                 <body_expression>
                     <binary_operation operator="/">
                         <left_operand>
-                            <constant type="real">1.0</constant>
+                            <constant type="real"><VSF2L></constant>
                         </left_operand>
                         <right_operand>
-                            <constant type="real">1.0</constant>
+                            <constant type="real"><VSF2R></constant>
                         </right_operand>
                     </binary_operation>
                 </body_expression>
@@ -44704,10 +44960,10 @@
                 <body_expression>
                     <binary_operation operator="/">
                         <left_operand>
-                            <constant type="real">1.0</constant>
+                            <constant type="real"><VSF3L></constant>
                         </left_operand>
                         <right_operand>
-                            <constant type="real">1.0</constant>
+                            <constant type="real"><VSF3R></constant>
                         </right_operand>
                     </binary_operation>
                 </body_expression>
@@ -44716,32 +44972,100 @@
                 <body_expression>
                     <binary_operation operator="/">
                         <left_operand>
-                            <constant type="real">1.0</constant>
+                            <constant type="real"><VSF4L></constant>
                         </left_operand>
                         <right_operand>
-                            <constant type="real">1.0</constant>
+                            <constant type="real"><VSF4R></constant>
+                        </right_operand>
+                    </binary_operation>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="VSF5">
+                <body_expression>
+                    <binary_operation operator="/">
+                        <left_operand>
+                            <constant type="real"><VSF5L></constant>
+                        </left_operand>
+                        <right_operand>
+                            <constant type="real"><VSF5R></constant>
+                        </right_operand>
+                    </binary_operation>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="VSF6">
+                <body_expression>
+                    <binary_operation operator="/">
+                        <left_operand>
+                            <constant type="real"><VSF6L></constant>
+                        </left_operand>
+                        <right_operand>
+                            <constant type="real"><VSF6R></constant>
+                        </right_operand>
+                    </binary_operation>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="VSF7">
+                <body_expression>
+                    <binary_operation operator="/">
+                        <left_operand>
+                            <constant type="real"><VSF7L></constant>
+                        </left_operand>
+                        <right_operand>
+                            <constant type="real"><VSF7R></constant>
+                        </right_operand>
+                    </binary_operation>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="VSF8">
+                <body_expression>
+                    <binary_operation operator="/">
+                        <left_operand>
+                            <constant type="real"><VSF8L></constant>
+                        </left_operand>
+                        <right_operand>
+                            <constant type="real"><VSF8R></constant>
                         </right_operand>
                     </binary_operation>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="OSPolicy1">
                 <body_expression>
-                    <constant type="string">"PB"</constant>
+                    <constant type="string">"<OSPOLICY1>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="OSPolicy2">
                 <body_expression>
-                    <constant type="string">"PB"</constant>
+                    <constant type="string">"<OSPOLICY2>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="OSPolicy3">
                 <body_expression>
-                    <constant type="string">"PB"</constant>
+                    <constant type="string">"<OSPOLICY3>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="OSPolicy4">
                 <body_expression>
-                    <constant type="string">"PB"</constant>
+                    <constant type="string">"<OSPOLICY4>"</constant>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="OSPolicy5">
+                <body_expression>
+                    <constant type="string">"<OSPOLICY5>"</constant>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="OSPolicy6">
+                <body_expression>
+                    <constant type="string">"<OSPOLICY6>"</constant>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="OSPolicy7">
+                <body_expression>
+                    <constant type="string">"<OSPOLICY7>"</constant>
+                </body_expression>
+            </instantiation_expression>
+            <instantiation_expression parameter_name="OSPolicy8">
+                <body_expression>
+                    <constant type="string">"<OSPOLICY8>"</constant>
                 </body_expression>
             </instantiation_expression>
             <instantiation_expression parameter_name="NoC_BandwidthPerConnection">

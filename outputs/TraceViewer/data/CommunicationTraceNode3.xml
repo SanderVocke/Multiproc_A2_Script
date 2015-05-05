@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<trace type='communication' name='Node3'>
+  <start channel='G7' iteration='0' time='0.000404650002000000'>
+  </start>  <end channel='G7' time='0.000404655002000000'>
+  </end>  <start channel='F12' iteration='0' time='0.00233608643964434'>
+  </start></trace>

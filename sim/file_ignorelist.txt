@@ -1,9 +1,9 @@
 ARM11.txt
 dse_base_4core.xml
+dse_base_8core.xml
 dse_base_variables.xml
 file_ignorelist.txt
 MIPS.txt
 rotalumis.exe
 TriMedia.txt
-dse_gen.xml
 dse_base_variables.txt

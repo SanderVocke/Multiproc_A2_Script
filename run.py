@@ -1,10 +1,8 @@
-import config
-from subprocess import Popen
+#FUNCTIONS FOR RUNNING SIMULATIONS
 
-#runs the trace viewer with its current input.
-def runTraceViewer():
-	call([config.FIREFOX_PATH, config.TRACEVIEWER_PATH])
+import config
+from subprocess import Popen, call
 	
-#runs the simulation based on the generated XML.
+#runs the simulation based on the generated XML in the ./sim folder.
 def runSim():
-	Popen(['./sim/rotalumis.exe', '-f', 'dse_gen.xml'], cwd = './sim')
+	call(['./sim/rotalumis.exe', '-f', 'dse_gen.xml'], cwd = './sim')

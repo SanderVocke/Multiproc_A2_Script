@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en-au">
+<head>
+    <title>5KK80 Assignment 2 Trace View</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/prettify.css" />
+    <!--        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
+        <link rel="stylesheet" href="http://taitems.github.com/UX-Lab/core/css/prettify.css" />-->
+    <style type="text/css">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            padding: 0 0 50px 0;
+        }
+
+        .contain {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 40px 0 20px 0;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            padding-bottom: 3px;
+            border-bottom: 1px solid #DDD;
+            margin-top: 50px;
+            margin-bottom: 25px;
+        }
+
+        table th:first-child {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+
+        <h1>5KK80, Assignment 2
+                <small>Trace View</small>
+        </h1>
+
+        <h2>Trace</h2>
+        <div class="gantt"></div>
+        <h2>Memory occupation</h2>
+        <div>
+            <p id="choices"></p>
+            <div id="memory"></div>
+        </div>
+            
+        <p>N.B.; the time axis of the memory plot is not coupled to the gantt chart.
+    </div>
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>-->
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.fn.gantt.js"></script>
+<script type="text/javascript" src="js/traces.js"></script>
+<script type="text/javascript" src="js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="js/bootstrap-popover.js"></script>
+<script type="text/javascript" src="js/jquery.flot.js"></script>
+<script type="text/javascript" src="js/jquery.flot.selection.js"></script>
+<script>
+    var colors = ["ganttColor1", "ganttColor2", "ganttColor3", "ganttColor4", "ganttColor5", "ganttColor6"];
+    
+    function drawGanttChart() {
+        "use strict";
+        var numColor = colors.length;
+        $(".gantt").gantt({
+            source: src,
+            navigate: "scroll",
+            scale: 100,
+            maxScale: 100000,
+            minScale: 1,
+            itemsPerPage: 20,
+        });
+
+        setTimeout(installPopover, 1000);
+    }
+
+    function drawMemoryChart() {
+        // insert checkboxes 
+        var choiceContainer = $("#choices");
+        var maxTime = 0;
+        $.each(mem, function(key, val) {
+            choiceContainer.append("<input style='margin-top:0px;' type='checkbox' name='" + key +
+                "' checked='checked' id='id" + key + "'></input>" +
+                "<label style='display:inline; margin-left:10px; margin-right:10px; margin-top:0px; margin-bottom: 0px;' for='id" + key + "'>"
+                + val.label + "</label>");
+            $.each(val.data, function(index, datapoint) {
+                maxTime = Math.max(maxTime, datapoint[0]);
+            });
+        });
+        choiceContainer.find("input").click(plotAccordingToChoices);
+
+        var memoryPlotOptions = {
+            xaxis: {
+                min: 0, max: maxTime
+            }};
+        function plotAccordingToChoices() {
+
+            var data = [];
+
+            choiceContainer.find("input:checked").each(function () {
+                var key = $(this).attr("name");
+                if (key && mem[key]) {
+                    data.push(mem[key]);
+                }
+            });
+
+            if (data.length > 0) {
+                $.plot("#memory", data, memoryPlotOptions);
+            }
+        }
+
+        plotAccordingToChoices();
+    }
+
+    function installPopover() {
+        //$(".gantt").popover({
+        //    selector: ".bar",
+        $(".bar").popover({
+            title: function () {
+                return $(this).data('dataObj').popTitle;
+            },
+            content: function () {
+                return $(this).data('dataObj').popContent;
+            },
+            trigger: "hover"
+        });
+    }
+
+    var src = [
+                    {
+                        name: "Processor 1",
+                        desc: "Computation",
+                        values: []
+                    }, {
+                        name: "Processor 2",
+                        desc: "Computation",
+                        values: []
+                    }, {
+                        name: "Processor 3",
+                        desc: "Computation",
+                        values: []
+                    }, {
+                        name: "Processor 4",
+                        desc: "Computation",
+                        values: []
+                    }
+    ];
+    var mem = {};
+    
+    function getTraceXML(filename) {
+        return $.ajax({
+            type: "GET",
+            url: filename,
+            dataType: "xml"
+        });
+    }
+
+    $(document).ready(function () {
+    
+        $.when(getTraceXML("data/ProcessorTraceNode1.xml"),
+                getTraceXML("data/ProcessorTraceNode2.xml"),
+                getTraceXML("data/ProcessorTraceNode3.xml"),
+                getTraceXML("data/ProcessorTraceNode4.xml"),
+                getTraceXML("data/CommunicationTraceNoC.xml"),
+                getTraceXML("data/CommunicationTraceNode1.xml"),
+                getTraceXML("data/CommunicationTraceNode2.xml"),
+                getTraceXML("data/CommunicationTraceNode3.xml"),
+                getTraceXML("data/CommunicationTraceNode4.xml"))
+          .then(function (xml1, xml2, xml3, xml4, xml5, xml6, xml7, xml8, xml9) {
+              addProcTrace(xml1, 0);
+              addProcTrace(xml2, 1);
+              addProcTrace(xml3, 2);
+              addProcTrace(xml4, 3);
+              addCommTrace(xml5, "Comm.");
+              addCommTrace(xml6, "Comm.");
+              addCommTrace(xml7, "Comm.");
+              addCommTrace(xml8, "Comm.");
+              addCommTrace(xml9, "Comm.");
+              drawGanttChart();
+          })
+          .fail(function (response, error) {
+          
+              var msg = 'Failed to load one or more processor trace files.';
+              if(response && response.responseXML) {
+                msg += '\n' + response.responseXML.URL + " failed to load";
+              }
+              alert(msg);
+          });
+          
+          $.when(
+                getTraceXML("data/MemoryTraceDataNode1.xml"),
+                getTraceXML("data/MemoryTraceDataNode2.xml"),
+                getTraceXML("data/MemoryTraceDataNode3.xml"),
+                getTraceXML("data/MemoryTraceDataNode4.xml"),
+                getTraceXML("data/MemoryTraceBufferNode1.xml"),
+                getTraceXML("data/MemoryTraceBufferNode2.xml"),
+                getTraceXML("data/MemoryTraceBufferNode3.xml"),
+                getTraceXML("data/MemoryTraceBufferNode4.xml"),
+                getTraceXML("data/MemoryTraceNoC.xml"))
+             .then(function (xml1, xml2, xml3, xml4, xml5, xml6, xml7, xml8, xml9) {
+                addMemTrace(mem, xml1, "Data Memory Node 1", 1);
+                addMemTrace(mem, xml2, "Data Memory Node 2", 2);
+                addMemTrace(mem, xml3, "Data Memory Node 3", 3);
+                addMemTrace(mem, xml4, "Data Memory Node 4", 4);          
+                addMemTrace(mem, xml5, "Buffer Memory Node 1", 5);          
+                addMemTrace(mem, xml6, "Buffer Memory Node 2", 6);          
+                addMemTrace(mem, xml7, "Buffer Memory Node 3", 7);          
+                addMemTrace(mem, xml8, "Buffer Memory Node 4", 8);          
+                addMemTrace(mem, xml9, "Buffer Memory NoC", 9);          
+
+                drawMemoryChart();
+             })
+          .fail(function (response, error) {
+          
+              var msg = 'Failed to load one or more memory trace files.';
+              if(response && response.responseXML) {
+                msg += '\n' + response.responseXML.URL + " failed to load";
+              }
+              alert(msg);
+          }); 
+             
+          
+          
+          
+    });
+
+</script>
+</body>
+
+</html>

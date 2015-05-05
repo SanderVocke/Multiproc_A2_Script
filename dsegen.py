@@ -1,5 +1,47 @@
+#FUNCTIONS FOR GENERATING POOSL/XML FILES FOR SIMULATION.
 
-#generate_DSE_XML_4core: generates DSE XML file based on template.
+#generate_DSE_XML_8core: generates DSE XML file based on template XML.
+#
+# nodes:
+# array of tuples (processor:String, VSF:String, OSPolicy:String), where:
+#  - processor is a string ("TriMedia", "ARM11" or "MIPS")
+#  - VSF is a string: "1.0/4.0", etc
+#  - OSPolicy is one of "PB" or "FCFS"
+#
+# tasks:
+# array of tuples (node:Integer, priority:Integer), where:
+#  - node is index of the node to which task is mapped in the node array
+#  - priority is the priority of the task
+#
+# iterate: boolean.
+#
+# scenario: one of "S1" or "S2"
+#
+# note that the nodes and tasks are 0-indexed but will be printed with an offset
+# of 1 for compatibility to the POOSL model.
+def generate_DSE_XML_8core(nodes, tasks, iterate, scenario, templatefile, targetfile):
+	f = open(templatefile, "r")
+	template = f.read()
+	f.close()
+	if iterate:
+		template = template.replace("<ITERATESTRING>", "true")
+	else:
+		template = template.replace("<ITERATESTRING>", "false")
+	template = template.replace("<SCENARIONAME>", scenario)
+	for i,x in enumerate(nodes):
+		template = template.replace("<PROCESSOR" + str(i+1) + ">", x[0])
+		template = template.replace("<VSF" + str(i+1) + "L>", x[1].split("/")[0])
+		template = template.replace("<VSF" + str(i+1) + "R>", x[1].split("/")[1])
+		template = template.replace("<OSPOLICY" + str(i+1) + ">", x[2])
+	for i,x in enumerate(tasks):
+		template = template.replace("<TMAP" + str(i+1) + ">", "Node" + str(x[0]+1))
+		template = template.replace("<PRIORITY" + str(i+1) + ">", str(x[1]))
+		
+	f = open(targetfile, "w")
+	f.write(template)
+	f.close()
+
+#generate_DSE_XML_4core: generates DSE XML file based on template XML.
 #
 # nodes:
 # array of tuples (processor:String, VSF:String, OSPolicy:String), where:
