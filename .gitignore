@@ -1,1 +1,5 @@
 /outputs/data/
+/sim/*.log
+/sim/*.xml
+/__pycache__
+/sim/*.cps
