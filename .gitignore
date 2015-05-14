@@ -3,3 +3,4 @@
 /sim/*.xml
 /__pycache__
 /sim/*.cps
+/*.pyc
