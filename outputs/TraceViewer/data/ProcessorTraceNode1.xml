@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
-<trace type='processor' name='TriMedia (PB)'>
-  <start task='Task4' iteration='0' time='0.000609450002000000'>
-  </start>  <contextswitch task='Task4' time='0.000616378408466513'>
-  </contextswitch>  <stop task='Task4' time='0.00108520057936721'>
-  </stop>  <start task='Task6' iteration='0' time='0.00110568057936721'>
-  </start>  <contextswitch task='Task6' time='0.00111260898583372'>
-  </contextswitch>  <stop task='Task6' time='0.00189454893964434'>
-  </stop></trace>

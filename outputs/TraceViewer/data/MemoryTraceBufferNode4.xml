@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
-<trace name='BufferNode4 (Buffer)'>
-  <claim amount='4096' time='0.00126748333533333'>
-  </claim>  <release amount='4096' time='0.00206983643964434'>
-  </release></trace>

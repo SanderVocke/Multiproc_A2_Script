@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
-<trace type='processor' name='ARM11 (PB)'>
-  <start task='Task3' iteration='0' time='0.000507050002000000'>
-  </start>  <contextswitch task='Task3' time='0.000520383335333333'>
-  </contextswitch>  <stop task='Task3' time='0.000857883335333333'>
-  </stop>  <start task='Task2' iteration='0' time='0.000857883335333333'>
-  </start>  <contextswitch task='Task2' time='0.000871216668666667'>
-  </contextswitch>  <stop task='Task2' time='0.00145441666866667'>
-  </stop></trace>

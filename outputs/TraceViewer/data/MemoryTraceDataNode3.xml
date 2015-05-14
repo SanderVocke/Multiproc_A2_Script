@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
-<trace name='DataNode3 (Data)'>
-  <claim amount='21707' time='2.50000020000000e-005'>
-  </claim>  <release amount='21707' time='0.000404650002000000'>
-  </release>  <claim amount='1000' time='0.00229963643964434'>
-  </claim>  <release amount='1000' time='0.00233608643964434'>
-  </release></trace>

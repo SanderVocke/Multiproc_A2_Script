@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
-<trace type='communication' name='Node4'>
-  <start channel='F8' iteration='0' time='0.00173954583533333'>
-  </start>  <end channel='F8' time='0.00176002583533333'>
-  </end></trace>

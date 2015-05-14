@@ -10,4 +10,4 @@ def runSim():
 	elif os.name == 'posix':
 		os.chdir('./sim')
 		call(['./rotalumis', '-f', 'dse_gen.xml'])
-		os.chdir('./../')
+		os.chdir('./..')

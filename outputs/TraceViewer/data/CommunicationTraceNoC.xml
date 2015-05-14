@@ -1,31 +1,0 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
-<trace type='communication' name='NoC'>
-  <start channel='F1' iteration='0' time='0.000404650002000000'>
-  </start>  <start channel='G2' iteration='0' time='0.000404650002000000'>
-  </start>  <start channel='G1' iteration='0' time='0.000404650002000000'>
-  </start>  <start channel='G4' iteration='0' time='0.000404650002000000'>
-  </start>  <start channel='G6' iteration='0' time='0.000404650002000000'>
-  </start>  <start channel='F2' iteration='0' time='0.000404650002000000'>
-  </start>  <start channel='G5' iteration='0' time='0.000404650002000000'>
-  </start>  <start channel='G3' iteration='0' time='0.000404650002000000'>
-  </start>  <start channel='F3' iteration='0' time='0.000404650002000000'>
-  </start>  <end channel='G5' time='0.000404750002000000'>
-  </end>  <end channel='G3' time='0.000404750002000000'>
-  </end>  <end channel='G4' time='0.000404750002000000'>
-  </end>  <end channel='G6' time='0.000404750002000000'>
-  </end>  <end channel='G1' time='0.000404750002000000'>
-  </end>  <end channel='G2' time='0.000404750002000000'>
-  </end>  <end channel='F2' time='0.000507050002000000'>
-  </end>  <end channel='F1' time='0.000609450002000000'>
-  </end>  <end channel='F3' time='0.000609450002000000'>
-  </end>  <start channel='F4' iteration='0' time='0.000857883335333333'>
-  </start>  <end channel='F4' time='0.00126748333533333'>
-  </end>  <start channel='F7' iteration='0' time='0.00145441666866667'>
-  </start>  <start channel='F10' iteration='0' time='0.00145441666866667'>
-  </start>  <end channel='F10' time='0.00155681666866667'>
-  </end>  <end channel='F7' time='0.00155681666866667'>
-  </end>  <start channel='F9' iteration='0' time='0.00189454893964434'>
-  </start>  <end channel='F9' time='0.00199694893964434'>
-  </end>  <start channel='F11' iteration='0' time='0.00206983643964434'>
-  </start>  <end channel='F11' time='0.00227463643964434'>
-  </end></trace>
