@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<trace name='NoC (Buffer)'>
+  <claim amount='2048' time='2.00000000000000e-012'>
+  </claim>  <claim amount='1024' time='2.00000000000000e-012'>
+  </claim>  <claim amount='2048' time='2.00000000000000e-012'>
+  </claim>  <claim amount='1' time='2.00000000000000e-012'>
+  </claim>  <claim amount='1' time='2.00000000000000e-012'>
+  </claim>  <claim amount='1' time='2.00000000000000e-012'>
+  </claim>  <claim amount='1' time='2.00000000000000e-012'>
+  </claim>  <claim amount='1' time='2.00000000000000e-012'>
+  </claim>  <claim amount='1' time='2.00000000000000e-012'>
+  </claim>  <claim amount='4096' time='0.000507050002000000'>
+  </claim>  <claim amount='1024' time='0.000609450002000000'>
+  </claim>  <claim amount='1024' time='0.000609450002000000'>
+  </claim>  <release amount='1024' time='0.000857883335333333'>
+  </release>  <release amount='1' time='0.000857883335333333'>
+  </release>  <release amount='2048' time='0.00108520057936721'>
+  </release>  <release amount='1' time='0.00108520057936721'>
+  </release>  <claim amount='1024' time='0.00110568057936721'>
+  </claim>  <release amount='2048' time='0.00145441666866667'>
+  </release>  <release amount='1' time='0.00145441666866667'>
+  </release>  <release amount='4096' time='0.00173954583533333'>
+  </release>  <release amount='1' time='0.00173954583533333'>
+  </release>  <release amount='1' time='0.00189454893964434'>
+  </release>  <claim amount='2048' time='0.00199694893964434'>
+  </claim>  <release amount='1024' time='0.00206983643964434'>
+  </release>  <release amount='1024' time='0.00206983643964434'>
+  </release>  <release amount='1' time='0.00206983643964434'>
+  </release>  <release amount='1024' time='0.00233608643964434'>
+  </release></trace>

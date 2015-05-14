@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<trace type='processor' name='MIPS (PB)'>
+  <start task='Task5' iteration='0' time='0.00126748333533333'>
+  </start>  <contextswitch task='Task5' time='0.00129248333533333'>
+  </contextswitch>  <stop task='Task5' time='0.00173954583533333'>
+  </stop>  <start task='Task7' iteration='0' time='0.00199694893964434'>
+  </start>  <contextswitch task='Task7' time='0.00202194893964434'>
+  </contextswitch>  <stop task='Task7' time='0.00206983643964434'>
+  </stop></trace>
