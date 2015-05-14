@@ -2,6 +2,7 @@ import dsegen
 import util
 import run
 import analyze
+from time import time
 from os import listdir, remove, makedirs
 from os.path import isfile, join, exists
 
@@ -41,17 +42,22 @@ def countSettings(constraint_functions):
 													
 	return count
 	
-def doSingleSim(settings, base_folder, points_file):
+def doSingleSim(settings, base_folder, points_file, scenario):
 	s = settings
 	util.deleteRubbish('./sim')
-	genPart1DSEForSettings(settings, False, "S1")
+	genPart1DSEForSettings(settings, False, scenario)
 	run.runSim()
 	r = analyze.analyzeResults("./sim")
 	points_file.write("(%u,%u,%u,%u,%u,%u,%u,%u,%u,%u,%u,%u):(%f,%f,%f,%u,%u)\n" % 
 		(s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9],s[10],s[11],
 		r['avgpower'],r['peakpower'],r['latency'],r['deadlinemiss'],r['coresused']))
 	
-def doSims(constraint_functions, base_folder):
+def doSims(constraint_functions, base_folder, scenario):
+	print("Counting settings...")
+	total = countSettings(constraint_functions)
+	print(str(total) + " settings found, starting.")
+	done = 0
+	starttime = time()
 	if exists(base_folder):
 		print("folder already exists.")
 		exit()
@@ -74,5 +80,16 @@ def doSims(constraint_functions, base_folder):
 														if not x((a,b,c,d,e,f,g,h,i,j,k,l)):
 															do = False
 													if do:
-														doSingleSim((a,b,c,d,e,f,g,h,i,j,k,l), base_folder, fl)
+														doSingleSim((a,b,c,d,e,f,g,h,i,j,k,l), base_folder, fl, scenario)
+														done = done + 1
+														curtime = time()
+														seconds = int(curtime-starttime)%60
+														minutes = int((curtime-starttime)/60)%60
+														hours = int((curtime-starttime)/360)
+														timetogo = (curtime-starttime)*(total-done)/(done)
+														secondsg = int(timetogo)%60
+														minutesg = int((timetogo)/60)%60
+														hoursg = int((timetogo)/360)
+														print("Done {0} of {1} simulations.".format(done,total))
+														print("{0}:{1}:{2} taken, ETA {3}:{4}:{5}.".format(hours,minutes,seconds,hoursg,minutesg,secondsg))
 	fl.close()

@@ -70,7 +70,7 @@ def makeParetoFixedCores(input, output, cores):
 			temp = line.replace('(', '').replace(')', '').replace('\n', '').split(':')
 			settings = temp[0].split(',')
 			results = temp[1].split(',')
-			if int(results[4]) != cores or int(results[3]) != 0:
+			if int(results[4]) != cores or int(results[3]) > 5:
 				continue
 			if len(pareto) == 0:
 				pareto.append((settings,results))
@@ -121,3 +121,23 @@ def pointsToCSV(input, output):
 				for h in range(4,12):
 					o.write(s[h]+',')
 				o.write('\n')
+
+cores = ["MIPS", "ARM11", "TriMedia"]		
+def doPointTraceView(pointstring, scenario):
+	temp = pointstring.replace('(', '').replace(')', '').replace('\n', '').split(':')
+	settings = temp[0].split(',')
+	results = temp[1].split(',')
+	dsegen.generate_DSE_XML_4core(
+		[(cores[int(settings[0])], "1.0/1.0", "PB"),
+		(cores[int(settings[1])], "1.0/1.0", "PB"),
+		(cores[int(settings[2])], "1.0/1.0", "PB"),
+		(cores[int(settings[3])], "1.0/1.0", "PB")],
+		[(int(settings[4]),1),(int(settings[5]),2),(int(settings[6]),3),(int(settings[7]),4)
+		,(int(settings[8]),5),(int(settings[9]),6),(int(settings[10]),7),(int(settings[11]),8)], 
+		False, scenario, "./sim/dse_base_4core.xml", "./sim/dse_gen.xml")
+	run.runSim()
+	moveResults("./sim", "./outputs/data/temp")
+	doMakeTraceViewScript("./outputs/data/temp", "./../../..", "./../..", "data/temp")
+	results = analyze.analyzeResults('./outputs/data/temp') #analyze sim results
+	print("Simulation results:\n" + str(results))
+	doTraceView("./outputs", "data/temp") #show the trace view

@@ -12,4 +12,4 @@ if doTestCountSettings:
 if doTestDoSims:
 	dosettings.doSims([constraints.useTwoCoresMax,
 					constraints.MIPSOnly, constraints.task1tocore1,
-					constraints.task2tocore2, constraints.task3tocore1], './outputs/data/dosim_test')
+					constraints.task2tocore2, constraints.task3tocore1], './outputs/data/dosim_test', "S1")
